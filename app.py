@@ -1,23 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///links.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class link(db.Model):
-    id = db.сolumn(db.Integer, primary_key=True)
-    original_url = db.Column(db.String(500), nullable = False)
-    short_code = db.Column(db.String(20), unique=True, nullable = False)
+class Link(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    original_url = db.Column(db.String(500), nullable=False)
+    short_code = db.Column(db.String(20), unique=True, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    clicks = db.column(db.Integer, default=0)
-
+    clicks = db.Column(db.Integer, default=0)
 
 @app.route('/')
 def home():
-    return 'Hello flask'
+    return render_template('index.html', name='flask')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
