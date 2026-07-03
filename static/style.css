@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="url"] {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.link-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.link-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.full-link {
+    font-weight: bold;
+    color: #007bff;
+    word-break: break-all;
+}
+
+.copy-btn {
+    padding: 4px 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.copy-btn:hover {
+    background-color: #1e7e34;
+}
+
+.link-meta {
+    margin-top: 5px;
+    color: #888;
+    font-size: 14px;
+}
+
+.delete-link {
+    color: red;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.delete-link:hover {
+    text-decoration: underline;
+}
+
+.original-url {
+    color: #aaa;
+    font-size: 13px;
+    word-break: break-all;
+    margin-top: 4px;
+}
+
+.empty {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}

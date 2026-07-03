@@ -1,3 +1,33 @@
 {% extends "layout.html" %}
-{% block title %} test {% endblock %}
-{% block body %} <h1>Привет</h1> {% endblock %}
+
+{% block title %}Сокращатель ссылок{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>🔗 Сокращатель ссылок</h1>
+
+    <form method="post">
+        <input type="url" name="url" placeholder="Вставьте ссылку..." required>
+        <button type="submit">Сократить</button>
+    </form>
+
+    <hr>
+
+    <h3>Все ссылки</h3>
+    {% for link in links %}
+        <div class="link-item">
+            <div class="link-row">
+                <span class="full-link">{{ request.host_url }}{{ link.short_code }}</span>
+                <button class="copy-btn" onclick="copyToClipboard('{{ request.host_url }}{{ link.short_code }}')">Копировать</button>
+            </div>
+            <div class="link-meta">
+                <span>Переходов: {{ link.clicks }}</span>
+                <a href="/delete/{{ link.id }}" class="delete-link">Удалить</a>
+            </div>
+            <div class="original-url">{{ link.original_url }}</div>
+        </div>
+    {% else %}
+        <p class="empty">Пока нет ни одной ссылки</p>
+    {% endfor %}
+</div>
+{% endblock %}
